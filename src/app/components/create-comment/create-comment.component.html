@@ -1,1 +1,25 @@
-<p>create-comment works!</p>
+<div *ngIf="character.name; else loading">
+    <h1>Comment - {{ character.name }}</h1>
+
+    <div>
+        <textarea #comment cols="40" rows="5"></textarea>
+    </div>
+    <div>
+        <tr>
+            <td>
+                <button 
+                    type="button"
+                    (click)="goBack()"
+                    >Cancel</button>
+            </td>
+            <td>
+                <button 
+                    type="button"
+                    (click)="postComment(comment.value)"
+                    >Post</button>
+            </td>
+        </tr>
+    </div>
+</div>
+
+<ng-template #loading>Loading</ng-template>

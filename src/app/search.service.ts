@@ -17,6 +17,14 @@ export class SearchService {
   }
 
   getCharacterById(id: string) {
-    return lastValueFrom(this.http.get<MarvelCharacter>(`/api/character/${id}`))
+    return lastValueFrom(this.http.get<any>(`/api/character/${id}`))
+  }
+
+  postComment(comment: string, id: string) {
+    const payload = {
+      characterId: id,
+      text: comment
+    }
+    return lastValueFrom(this.http.post<any>(`/api/character/${id}`, payload))
   }
 }

@@ -17,6 +17,8 @@ export class CharacterDetailsComponent implements OnInit {
     thumbnail: ''
   }
 
+  comments: string[] = []
+
   constructor(
     private activatedRoute: ActivatedRoute,
     private searchSvc: SearchService) { }
@@ -26,8 +28,10 @@ export class CharacterDetailsComponent implements OnInit {
     this.searchSvc.getCharacterById(id)
         .then(
             result => {
-                this.character = result
+                this.character = result['character']
                 console.log(this.character)
+                this.comments = result['comments']
+                console.log(this.comments)
             }
         )
   }

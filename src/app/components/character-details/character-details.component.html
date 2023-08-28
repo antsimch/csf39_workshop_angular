@@ -11,7 +11,10 @@
                     {{ character.name }}            
                 </span>
                 <span>
-                    <button type="button">Comment</button>
+                    <button 
+                        type="button"
+                        [routerLink]="['/character/comment', character.id]"
+                        >Comment</button>
                 </span>
             </td>
         </tr>
@@ -20,6 +23,12 @@
                 {{ character.description }}
             </td>
         </tr>
+    </table>
+</div>
+
+<div *ngIf="comments[0]">
+    <table border="1">
+        <tr *ngFor="let comment of comments">{{ comment }}</tr>
     </table>
 </div>
 
