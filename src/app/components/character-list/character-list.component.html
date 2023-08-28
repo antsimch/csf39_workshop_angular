@@ -1,0 +1,13 @@
+<div *ngIf="characters[0]; else loading">
+    <table border="1">
+        <tr *ngFor="let character of characters">
+            <td>
+                <a 
+                    [routerLink]="['/character', character.id]
+                    ">{{ character.name }}</a>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<ng-template #loading>Loading</ng-template>

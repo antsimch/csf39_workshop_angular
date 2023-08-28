@@ -1,0 +1,26 @@
+<div *ngIf="character.name; else loading">
+    <table border="1" width="500">
+        <tr>
+            <td>
+                <img [src]="character.thumbnail" width="500">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span>
+                    {{ character.name }}            
+                </span>
+                <span>
+                    <button type="button">Comment</button>
+                </span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                {{ character.description }}
+            </td>
+        </tr>
+    </table>
+</div>
+
+<ng-template #loading>Loading</ng-template>
